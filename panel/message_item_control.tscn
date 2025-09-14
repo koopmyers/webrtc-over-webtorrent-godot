@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfsei3airwx4s"]
+
+[ext_resource type="Script" uid="uid://pbxxonhemirk" path="res://panel/message_item_control.gd" id="1_eynp4"]
+[ext_resource type="Texture2D" uid="uid://bw1nalj6ph1ul" path="res://panel/icons/info_icon.tres" id="2_83orp"]
+[ext_resource type="Texture2D" uid="uid://wcdvmyl01v1p" path="res://panel/icons/error_icon.tres" id="3_hv8fo"]
+[ext_resource type="Texture2D" uid="uid://c141mpg6pwbt8" path="res://panel/icons/sent_icon.tres" id="4_815v1"]
+[ext_resource type="Texture2D" uid="uid://d3r4nf1lyap1q" path="res://panel/icons/received_icon.tres" id="5_5a58g"]
+
+[node name="MessageItemControl" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 32)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_eynp4")
+icons = Dictionary[int, Texture]({
+0: ExtResource("2_83orp"),
+1: ExtResource("3_hv8fo"),
+2: ExtResource("4_815v1"),
+3: ExtResource("5_5a58g")
+})
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TypeTextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("4_815v1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DataLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+text = "DATA"
+vertical_alignment = 1
+text_overrun_behavior = 4
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

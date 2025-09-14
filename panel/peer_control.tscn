@@ -1,0 +1,109 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckrifxh4o768d"]
+
+[ext_resource type="Script" uid="uid://qcomcx6e48wn" path="res://panel/peer_control.gd" id="1_kiw0h"]
+
+[node name="PeerControl" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"H1PanelContainer"
+script = ExtResource("1_kiw0h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HeaderContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="IdLabel" type="Label" parent="VBoxContainer/HeaderContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "00000000000000000000"
+
+[node name="AddressLabel" type="Label" parent="VBoxContainer/HeaderContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "00000000000000000000"
+
+[node name="ConnectionStateContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/ConnectionStateContainer"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Connection"
+
+[node name="ConnectionStateColorRect" type="ColorRect" parent="VBoxContainer/ConnectionStateContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="ConnectionStateLabel" type="Label" parent="VBoxContainer/ConnectionStateContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "PEER_ID"
+text_overrun_behavior = 1
+
+[node name="GatheringStateContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/GatheringStateContainer"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Gathering"
+
+[node name="GatheringStateColorRect" type="ColorRect" parent="VBoxContainer/GatheringStateContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="GatheringStateLabel" type="Label" parent="VBoxContainer/GatheringStateContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "PEER_ID"
+text_overrun_behavior = 1
+
+[node name="SignalingStateContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/SignalingStateContainer"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Signaling"
+
+[node name="SignalingStateColorRect" type="ColorRect" parent="VBoxContainer/SignalingStateContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="SignalingStateLabel" type="Label" parent="VBoxContainer/SignalingStateContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "PEER_ID"
+text_overrun_behavior = 1

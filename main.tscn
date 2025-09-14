@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://123alpfcmu3h"]
+
+[ext_resource type="Script" uid="uid://cy006uvidc4y" path="res://webRTC_over_webtorrent_client.gd" id="1_ig7tw"]
+[ext_resource type="Resource" uid="uid://b0qddpn07vgly" path="res://public_trackers_context.tres" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dujkendqt6ls1" path="res://panel/client_panel.tscn" id="3_h2yge"]
+
+[node name="Main" type="Node"]
+
+[node name="MasterClient00" type="Node" parent="."]
+script = ExtResource("1_ig7tw")
+context = ExtResource("3_1bvp3")
+metadata/_custom_type_script = "uid://cy006uvidc4y"
+
+[node name="Client01" type="Node" parent="."]
+script = ExtResource("1_ig7tw")
+context = ExtResource("3_1bvp3")
+metadata/_custom_type_script = "uid://cy006uvidc4y"
+
+[node name="Client02" type="Node" parent="."]
+script = ExtResource("1_ig7tw")
+context = ExtResource("3_1bvp3")
+metadata/_custom_type_script = "uid://cy006uvidc4y"
+
+[node name="HSplitContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MasterClient00Panel" parent="HSplitContainer" node_paths=PackedStringArray("client") instance=ExtResource("3_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+client = NodePath("../../MasterClient00")
+
+[node name="Client01Panel" parent="HSplitContainer" node_paths=PackedStringArray("client") instance=ExtResource("3_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 3
+client = NodePath("../../Client01")
+
+[node name="Client02Panel" parent="HSplitContainer" node_paths=PackedStringArray("client") instance=ExtResource("3_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 3
+client = NodePath("../../Client02")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WebRTCOverWebTorrentContext" load_steps=2 format=3 uid="uid://b0qddpn07vgly"]
+
+[ext_resource type="Script" uid="uid://t4pe7yqc3pnt" path="res://webRTC_over_webtorrent_context.gd" id="1_p7y8h"]
+
+[resource]
+script = ExtResource("1_p7y8h")
+app_id = "Mnq0iBe0URczX2n"
+mode = 0
+trackers_urls = Array[String](["ws://localhost:8000", "wss://tracker.openwebtorrent.com", "wss://tracker.webtorrent.dev", "wss://tracker.files.fm:7073/announce", "wss://tracker.btorrent.xyz/"])
+stun_servers_urls = Array[String](["stun:stun.l.google.com:19302", "stun1.l.google.com:19302", "stun2.l.google.com:19302", "stun3.l.google.com:19302", "stun4.l.google.com:19302"])
+metadata/_custom_type_script = "uid://t4pe7yqc3pnt"

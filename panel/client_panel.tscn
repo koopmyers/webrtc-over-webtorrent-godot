@@ -1,0 +1,245 @@
+[gd_scene load_steps=7 format=3 uid="uid://dujkendqt6ls1"]
+
+[ext_resource type="Script" uid="uid://c6txv1voyurrl" path="res://panel/client_panel.gd" id="1_ds6ar"]
+[ext_resource type="PackedScene" uid="uid://ckrifxh4o768d" path="res://panel/peer_control.tscn" id="2_kgli7"]
+[ext_resource type="PackedScene" uid="uid://ja0u2vuivo8b" path="res://panel/tracker_control.tscn" id="3_0c0cv"]
+[ext_resource type="PackedScene" uid="uid://bi8vgsoslhvrb" path="res://panel/message_control.tscn" id="3_31a4x"]
+[ext_resource type="PackedScene" uid="uid://btfc8o5xfs14w" path="res://panel/messages_container.tscn" id="4_kgli7"]
+[ext_resource type="PackedScene" uid="uid://budxt0ohhps46" path="res://panel/channel_control.tscn" id="4_syqxn"]
+
+[node name="ClientPanel" type="PanelContainer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 532.0
+grow_vertical = 2
+script = ExtResource("1_ds6ar")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HeaderContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_type_variation = &"H1PanelContainer"
+
+[node name="HeaderButton" type="Button" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HeaderContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HContainer" type="HFlowContainer" parent="VBoxContainer/HeaderContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="SessionContainer" type="HBoxContainer" parent="VBoxContainer/HeaderContainer/MarginContainer/HContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HeaderContainer/MarginContainer/HContainer/SessionContainer"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Session"
+
+[node name="SessionLabel" type="Label" parent="VBoxContainer/HeaderContainer/MarginContainer/HContainer/SessionContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "0000000000000000000"
+
+[node name="SessionLineEdit" type="LineEdit" parent="VBoxContainer/HeaderContainer/MarginContainer/HContainer/SessionContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(208, 0)
+layout_mode = 2
+text = "ABCDEFG"
+placeholder_text = "Enter session id"
+alignment = 1
+
+[node name="JoinButton" type="Button" parent="VBoxContainer/HeaderContainer/MarginContainer/HContainer/SessionContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+text = "JOIN"
+
+[node name="CreateButton" type="Button" parent="VBoxContainer/HeaderContainer/MarginContainer/HContainer/SessionContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+text = "CREATE"
+
+[node name="PeerContainer" type="HBoxContainer" parent="VBoxContainer/HeaderContainer/MarginContainer/HContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HeaderContainer/MarginContainer/HContainer/PeerContainer"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Peer"
+
+[node name="PeerLabel" type="Label" parent="VBoxContainer/HeaderContainer/MarginContainer/HContainer/PeerContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(208, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"HeaderMedium"
+text = "0000000000000000000"
+
+[node name="VSplitContainer" type="VSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="VBoxContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"H1PanelContainer"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/VSplitContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Trackers (Signaling servers)"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="TrackersContainer" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2/PanelContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SocketsContainer" type="HSplitContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2/SocketsContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"H1PanelContainer"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2/SocketsContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/VSplitContainer2/SocketsContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Peers"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2/SocketsContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="PeersContainer" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2/SocketsContainer/PanelContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2/SocketsContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"H1PanelContainer"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2/SocketsContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VSplitContainer/VSplitContainer2/SocketsContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Channels"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2/SocketsContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="ChannelsContainer" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer2/SocketsContainer/PanelContainer2/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSplitContainer" type="VSplitContainer" parent="VBoxContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"H1PanelContainer"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="TabContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+current_tab = 0
+tabs_visible = false
+
+[node name="NoControl" type="MarginContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer/PanelContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="TrackerControl" parent="VBoxContainer/VSplitContainer/VSplitContainer/PanelContainer/VBoxContainer/MarginContainer" node_paths=PackedStringArray("messages_container") instance=ExtResource("3_0c0cv")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+messages_container = NodePath("../../MessagesContainer")
+metadata/_tab_index = 1
+
+[node name="PeerControl" parent="VBoxContainer/VSplitContainer/VSplitContainer/PanelContainer/VBoxContainer/MarginContainer" node_paths=PackedStringArray("channels_containers", "messages_container") instance=ExtResource("2_kgli7")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+channels_containers = NodePath("../../../../../VSplitContainer2/SocketsContainer/PanelContainer2/VBoxContainer/ScrollContainer/ChannelsContainer")
+messages_container = NodePath("../../MessagesContainer")
+metadata/_tab_index = 2
+
+[node name="ChannelControl" parent="VBoxContainer/VSplitContainer/VSplitContainer/PanelContainer/VBoxContainer/MarginContainer" node_paths=PackedStringArray("messages_container") instance=ExtResource("4_syqxn")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+messages_container = NodePath("../../MessagesContainer")
+metadata/_tab_index = 3
+
+[node name="MessagesContainer" parent="VBoxContainer/VSplitContainer/VSplitContainer/PanelContainer/VBoxContainer" node_paths=PackedStringArray("message_control") instance=ExtResource("4_kgli7")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+message_control = NodePath("../../../MessageControl")
+
+[node name="MessageControl" parent="VBoxContainer/VSplitContainer/VSplitContainer" instance=ExtResource("3_31a4x")]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/HeaderContainer/HeaderButton" to="." method="_on_header_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HeaderContainer/MarginContainer/HContainer/SessionContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HeaderContainer/MarginContainer/HContainer/SessionContainer/CreateButton" to="." method="_on_create_button_pressed"]
